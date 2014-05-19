@@ -40,4 +40,4 @@ needs or site requirements.
 
 ## Contributing
 
-See [CONTRIBUTING](contributing.md)
+See [CONTRIBUTING](CONTRIBUTING.md)
