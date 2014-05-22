@@ -130,13 +130,24 @@ function drush_site_check() {
 }
 
 /**
+ * Fetch the MySQL version.
+ *
+ * This is used because often the MySQL libraries aren't available and there
+ * isn't a more reliable way of doing it.
+ */
+function get_mysql_version() {
+  $version = db_query('SELECT VERSION() as mysql_version');
+  return $version->fetchColumn();
+}
+
+/**
  * Check the environment options that Drupal uses.
  */
 function check_environment_options() {
   $drupal_version = VERSION;
   $php_version = phpversion();
   $memory_limit = ini_get('memory_limit');
-  $mysql_version = mysql_get_server_info();
+  $mysql_version = get_mysql_version();
 
   output_info("Drupal version is $drupal_version.");
   output_info("Running on PHP version $php_version.");
