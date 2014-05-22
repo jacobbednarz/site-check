@@ -113,11 +113,11 @@ function drush_site_check() {
     }
 
     output_header_info("Emailing report to $email_address...");
+    $from = "Site check <site-check@$domain>";
     $headers = "From: $from\r\n" .
       "Reply-To: $from\r\n" .
       'X-Mailer: PHP/' . phpversion();
     $date = date('H:i:s - j M Y');
-    $from = "Site check <site-check@$domain>";
     $subject = "[$domain] site check results";
     $body = "Hi there,\n";
     $body .= "A recent site check of $domain has found the following errors:\n\n";
